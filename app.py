@@ -1,113 +1,140 @@
-# Farmer Profitability & Price Risk Simulator
-# Author: Your Name
-# Description: Python-based crop profitability and risk analysis using Monte Carlo simulation
-
+import streamlit as st
 import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
 
-# -----------------------------
-# 1. Crop Data
-# -----------------------------
-crop_data = {
-    "Crop": ["Rice", "Wheat", "Maize", "Cotton"],
-    "Seed_Cost": [1200, 1000, 900, 1500],
-    "Fertilizer_Cost": [2500, 2200, 2000, 3500],
-    "Labour_Cost": [6000, 5000, 4500, 8000],
-    "Irrigation_Cost": [3000, 2500, 2000, 4000],
-    "Pesticide_Cost": [1800, 1500, 1200, 2500],
-    "Yield_Quintal": [25, 22, 30, 18]
-}
-
-df = pd.DataFrame(crop_data)
-
-# -----------------------------
-# 2. Price History (₹ per quintal)
-# -----------------------------
-price_history = {
-    "Rice": [1900, 2100, 2200, 2000, 2300],
-    "Wheat": [2200, 2400, 2350, 2500, 2450],
-    "Maize": [1600, 1700, 1800, 1750, 1650],
-    "Cotton": [6000, 6500, 6200, 6800, 7000]
-}
-
-# -----------------------------
-# 3. Total Cost Calculation
-# -----------------------------
-df["Total_Cost"] = (
-    df["Seed_Cost"]
-    + df["Fertilizer_Cost"]
-    + df["Labour_Cost"]
-    + df["Irrigation_Cost"]
-    + df["Pesticide_Cost"]
+# ---------------- PAGE CONFIG ----------------
+st.set_page_config(
+    page_title="Farmer Advisory System",
+    page_icon="🌾",
+    layout="wide"
 )
 
-# -----------------------------
-# 4. Monte Carlo Simulation
-# -----------------------------
-SIMULATIONS = 1000
-results = []
+# ---------------- TITLE ----------------
+st.markdown(
+    """
+    <h1 style='text-align:center; color:#2E8B57;'>
+    🌾 Smart Farmer Advisory System
+    </h1>
+    <p style='text-align:center; font-size:18px;'>
+    Crop • Weather • Fertilizer • Pest Advisory
+    </p>
+    """,
+    unsafe_allow_html=True
+)
 
-for _, row in df.iterrows():
-    prices = price_history[row["Crop"]]
-    avg_price = np.mean(prices)
-    price_risk = np.std(prices)
+# ---------------- SIDEBAR ----------------
+st.sidebar.header("👨‍🌾 Farmer Details")
 
-    simulated_prices = np.random.normal(avg_price, price_risk, SIMULATIONS)
-    simulated_income = simulated_prices * row["Yield_Quintal"]
-    simulated_profit = simulated_income - row["Total_Cost"]
+soil_type = st.sidebar.selectbox(
+    "Soil Type",
+    ["Alluvial", "Black", "Red", "Laterite", "Sandy"]
+)
 
-    results.append({
-        "Crop": row["Crop"],
-        "Avg_Profit": round(simulated_profit.mean(), 2),
-        "Worst_Profit": round(np.percentile(simulated_profit, 5), 2),
-        "Best_Profit": round(np.percentile(simulated_profit, 95), 2),
-        "Loss_Probability_%": round((simulated_profit < 0).mean() * 100, 2)
-    })
+season = st.sidebar.selectbox(
+    "Season",
+    ["Kharif", "Rabi", "Zaid"]
+)
 
-result_df = pd.DataFrame(results)
+rainfall = st.sidebar.slider(
+    "Annual Rainfall (mm)",
+    200, 2000, 800
+)
 
-# -----------------------------
-# 5. Risk-Based Decision
-# -----------------------------
-def decision(loss_prob):
-    if loss_prob < 10:
-        return "Highly Recommended"
-    elif loss_prob < 30:
-        return "Moderate Risk"
+temperature = st.sidebar.slider(
+    "Average Temperature (°C)",
+    10, 45, 28
+)
+
+crop_issue = st.sidebar.selectbox(
+    "Any Crop Issue?",
+    ["None", "Pest Attack", "Yellow Leaves", "Low Yield"]
+)
+
+st.sidebar.markdown("---")
+st.sidebar.info("Developed using Python + Streamlit")
+
+# ---------------- LOGIC FUNCTIONS ----------------
+def recommend_crop(soil, season, rain):
+    if season == "Kharif":
+        if soil in ["Alluvial", "Black"] and rain > 700:
+            return "Rice, Maize, Cotton"
+        else:
+            return "Millets, Pulses"
+    elif season == "Rabi":
+        if soil in ["Alluvial", "Red"]:
+            return "Wheat, Mustard, Barley"
+        else:
+            return "Gram, Peas"
     else:
-        return "Not Recommended"
+        return "Watermelon, Cucumber, Fodder Crops"
 
-result_df["Decision"] = result_df["Loss_Probability_%"].apply(decision)
+def fertilizer_advice(soil):
+    if soil == "Black":
+        return "Use Nitrogen & Phosphorus based fertilizers"
+    elif soil == "Red":
+        return "Add Organic Manure + Potassium"
+    elif soil == "Alluvial":
+        return "Balanced NPK fertilizer recommended"
+    else:
+        return "Use Compost & Organic Fertilizers"
 
-# -----------------------------
-# 6. Print Results
-# -----------------------------
-print("\n==============================")
-print(" Crop Profitability & Risk Summary ")
-print("==============================\n")
-print(result_df)
+def pest_advisory(issue):
+    if issue == "Pest Attack":
+        return "Use Neem oil spray or consult agri officer"
+    elif issue == "Yellow Leaves":
+        return "Possible Nitrogen deficiency – apply Urea"
+    elif issue == "Low Yield":
+        return "Check soil health & irrigation schedule"
+    else:
+        return "No pest issue detected"
 
-# -----------------------------
-# 7. Plot Profit Comparison
-# -----------------------------
-plt.figure()
-plt.bar(result_df["Crop"], result_df["Avg_Profit"])
-plt.title("Average Profit by Crop (Monte Carlo Simulation)")
-plt.xlabel("Crop")
-plt.ylabel("Profit (₹)")
-plt.tight_layout()
-plt.show()
+def weather_advice(temp, rain):
+    if temp > 35:
+        return "High temperature – increase irrigation"
+    elif rain < 400:
+        return "Low rainfall – use drip irrigation"
+    else:
+        return "Weather conditions are favorable"
 
-# -----------------------------
-# 8. Final Recommendation
-# -----------------------------
-best_crop = result_df.sort_values("Loss_Probability_%").iloc[0]
+# ---------------- ADVISORY OUTPUT ----------------
+st.markdown("## 📊 Farmer Advisory Report")
 
-print("\n==============================")
-print(" FINAL CROP RECOMMENDATION ")
-print("==============================")
-print("Crop:", best_crop["Crop"])
-print("Average Profit: ₹", int(best_crop["Avg_Profit"]))
-print("Loss Probability:", best_crop["Loss_Probability_%"], "%")
-print("Decision:", best_crop["Decision"])
+crop = recommend_crop(soil_type, season, rainfall)
+fertilizer = fertilizer_advice(soil_type)
+pest = pest_advisory(crop_issue)
+weather = weather_advice(temperature, rainfall)
+
+data = {
+    "Category": [
+        "Recommended Crops",
+        "Fertilizer Advice",
+        "Pest Advisory",
+        "Weather Advisory"
+    ],
+    "Suggestion": [
+        crop,
+        fertilizer,
+        pest,
+        weather
+    ]
+}
+
+df = pd.DataFrame(data)
+
+st.table(df)
+
+# ---------------- SUMMARY CARDS ----------------
+st.markdown("## 🌱 Quick Summary")
+
+col1, col2, col3, col4 = st.columns(4)
+
+col1.success(f"🌾 Crops\n\n{crop}")
+col2.info(f"🧪 Fertilizer\n\n{fertilizer}")
+col3.warning(f"🐛 Pest\n\n{pest}")
+col4.success(f"🌦️ Weather\n\n{weather}")
+
+# ---------------- FOOTER ----------------
+st.markdown("---")
+st.markdown(
+    "<p style='text-align:center;'>© 2025 Farmer Advisory System | Python Project</p>",
+    unsafe_allow_html=True
+)
