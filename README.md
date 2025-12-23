@@ -123,6 +123,7 @@ Technology is used strictly as a **support tool for financial analysis**, not as
    ```bash
    pip install -r requirements.txt
  ```
+
 2.Run the application
 
   ```bash
