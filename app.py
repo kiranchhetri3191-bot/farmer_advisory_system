@@ -9,10 +9,10 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import joblib
 from io import BytesIO
-from reportlab.lib.pagesizes import A4
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
+from reportlab.lib.pagesizes import A4
 
 
 from sklearn.model_selection import train_test_split
