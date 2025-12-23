@@ -160,8 +160,7 @@ if not os.path.exists(DATA_FILE):
 
 df = pd.read_csv(DATA_FILE)
 
-X = df.drop(columns=["risk_flag"])
-y = df["risk_flag"]
+X = df.drop(columns=["risk_flag"], errors="ignore")
 
 required_features = X.columns.tolist()
 
