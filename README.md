@@ -127,6 +127,7 @@ Technology is used strictly as a **support tool for financial analysis**, not as
 
   ```bash
   streamlit run app.py
+ ```
 
 
 3.Upload an agricultural loan CSV file and explore insights
