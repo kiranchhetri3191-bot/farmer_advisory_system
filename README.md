@@ -1,107 +1,144 @@
-# 🌾 Smart Farmer Advisory System
-
-A Python-based web application that provides crop recommendations, fertilizer advice, pest guidance, weather advisory, yield estimation, and analytical graphs to help farmers make informed agricultural decisions.
-
-This project is built using Python and Streamlit and is suitable for college projects, resumes, internships, and agri-tech prototypes, especially for B.Com and management students with technical interest.
+# 🌾 Agricultural Loan Risk & Advisory System  
+### Decision Support System for Agricultural Finance (B.Com Project)
 
 ---
 
-## 🚀 Features
+## 📌 Project Overview
 
-- Crop recommendation based on soil type, season, and rainfall  
-- Fertilizer advisory for different soil conditions  
-- Pest and crop issue guidance  
-- Weather-based advisory (temperature & rainfall)  
-- Crop yield estimation (in quintals)  
-- Interactive dashboard with:
-  - Rainfall suitability graph  
-  - Temperature stress analysis graph  
-  - Soil health index visualization  
-  - Market price trend (sample data)  
-- Clean summary table and insight cards  
+Agricultural credit is a key pillar of rural development and farmer sustainability. However, loan stress and repayment issues often arise due to **income mismatch, excessive borrowing, credit discipline problems, and dependence on rainfed agriculture**.
+
+The **Agricultural Loan Risk & Advisory System** is a **decision-support application** developed to analyze agricultural loan data and highlight **risk patterns**.  
+The system focuses on **financial awareness and analytical understanding**, not on loan approval or rejection.
+
+This project demonstrates how **commerce and finance concepts** can be supported using structured data and visual analysis.
 
 ---
 
-## 🛠️ Technology Used
+## 🎯 Purpose of the Project
 
-- Python  
-- Streamlit (for web interface)  
-- Pandas (data handling)  
-- Matplotlib (graphs & charts)  
-- NumPy (numerical analysis)  
+The main objectives of this project are:
 
----
-
-## 📂 Project Structure
-
-Farmer-Advisory-System/  
-│  
-├── farmer_advisory_advanced.py   (Main application file)  
-├── README.md  
+- To study **risk factors involved in agricultural lending**
+- To analyze borrower profiles using structured loan data
+- To present insights in a **simple and non-technical manner**
+- To promote **responsible borrowing and financial awareness**
+- To apply **B.Com concepts** using practical analytical tools
 
 ---
 
-## ⚙️ Installation & Run
+## 🧠 What the System Does
 
-### Step 1: Clone Repository
-```bash
-git clone https://github.com/your-username/Farmer-Advisory-System.git
-cd Farmer-Advisory-System
+- Accepts agricultural loan data through CSV files  
+- Classifies borrower profiles into:
+  - 🟢 Low Risk  
+  - 🟡 Medium Risk  
+  - 🔴 High Risk  
+- Displays **clear visual dashboards** for easy understanding
+- Provides **general improvement suggestions** for risk awareness
+- Generates **downloadable CSV and PDF summary reports**
 
-## ⚖️ Legal Disclaimer & Liability Limitation
-
-This project is a **self-developed academic and learning project** created by **Kiran Chhetri** for educational, demonstration, and portfolio purposes only.
-
-The information, recommendations, calculations, and visualizations provided by this application are:
-- **Rule-based**
-- **Illustrative in nature**
-- **Not guaranteed to be accurate, complete, or suitable for real-world agricultural, financial, or commercial decision-making**
-
-❗ The author **does not provide professional agricultural, financial, or legal advice** through this project.
-
-By using this project, you acknowledge and agree that:
-- The author shall **not be held responsible or liable** for any loss, damage, or consequences (direct or indirect) arising from the use, misuse, or interpretation of this project or its outputs.
-- Users must **independently verify** all information before applying it in real-life scenarios.
-- This project is **used entirely at the user’s own risk**.
-
-The author is **not responsible** for:
-- Farming losses
-- Financial losses
-- Crop failure
-- Incorrect decisions based on this system
-- Any third-party usage or modification of the code
+> ⚠️ The system does **not** approve or reject loans.
 
 ---
-## 👨‍🎓 Author
 
-**Kiran Chhetri**
+## 📊 Key Insights Provided
 
-This project is a **self-developed work**, designed and implemented independently as part of academic learning and personal skill development.
+The dashboard helps users understand:
 
-I developed this project to apply **Python, data analysis, and business domain knowledge** to a real-world problem in the agriculture sector.  
-The project is intended for **educational, demonstration, and portfolio purposes**.
+- Overall loan risk distribution
+- Credit score quality of borrowers
+- Relationship between income and loan amount
+- Crop-wise risk patterns
+- Impact of irrigation type on loan risk
+- Income distribution across risk categories
 
-**Academic Background:** Bachelor of Commerce (B.Com)  
-**Areas of Interest:** Finance, Analytics, Python, Technology-driven Business Solutions
+All insights are presented using **simple charts and labels**, suitable for non-technical users.
 
-## © Copyright & Ownership
+---
 
-© 2025 **Kiran Chhetri**. All rights reserved.
+## 📂 Dataset Information
 
-This project is an **original, self-developed work**.  
-Unauthorized commercial use, redistribution, or claiming this project as one’s own is strictly prohibited without prior written permission from the author.
+The project uses **synthetically generated agricultural loan data** created solely for learning and analysis.
 
-Educational and non-commercial use is permitted **with proper credit to the author**.
+### Data Fields Used:
+- Farmer Age  
+- Land Size (Acres)  
+- Annual Farm Income  
+- Loan Amount  
+- Crop Type  
+- Irrigation Type  
+- Existing Loans  
+- Credit Score  
 
-Location input is used only for climate estimation and is not stored.
+Datasets of **10,000, 50,000, and 100,000 records** were used to test consistency and scalability.
 
-## Data Sources
-- Climate data: Open-Meteo (open-source)
-- Models: Scikit-learn
+---
 
-## Disclaimer
-This project is for educational and demonstration purposes only.
-This application uses publicly available open-source weather data 
-for educational and advisory purposes only. 
-Predictions are indicative and should not be treated as official or guaranteed
+## 🧾 Risk Classification Approach (Conceptual)
 
+Risk categorization is based on commonly accepted agricultural finance considerations:
+
+- Credit repayment discipline
+- Loan amount in relation to income
+- Size of landholding
+- Existing loan burden
+- Dependence on rainfed agriculture
+
+This approach is **educational and indicative**, not regulatory.
+
+---
+
+## 🧭 Advisory & Awareness Support
+
+For each borrower profile, the system provides **general improvement guidance**, such as:
+
+- Maintaining responsible loan levels
+- Improving credit discipline
+- Reducing multiple loan exposure
+- Exploring group-based lending options
+- Considering irrigation support schemes
+
+These suggestions are **informational only** and do not constitute financial advice.
+
+---
+
+## 🛠️ Tools & Technologies Used
+
+| Area | Tools |
+|----|------|
+| Application Interface | Streamlit |
+| Data Handling | Pandas, NumPy |
+| Risk Analysis | Rule-based & statistical model |
+| Visual Analysis | Matplotlib |
+| Reporting | CSV & PDF export |
+| Data Source | Synthetic CSV data |
+
+Technology is used strictly as a **support tool for financial analysis**, not as the primary focus.
+
+---
+
+## ▶️ How to Run the Project
+
+1. Install required packages  
+   ```bash
+   pip install -r requirements.txt
+
+2.Run the application
+
+streamlit run app.py
+
+3.Upload an agricultural loan CSV file and explore insights
+
+⚖️ Legal & Ethical Note
+
+This project is developed strictly for educational and analytical purposes
+
+No real farmer, bank, or credit bureau data is used
+
+No external APIs or live systems are connected
+
+The system does not make lending decisions
+
+The project follows ethical and responsible use of data.
+
+🌱 Practical Use Cases
