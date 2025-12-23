@@ -131,37 +131,37 @@ pip install -r requirements.txt
   streamlit run app.py     
  ```
 
-
 3.Upload an agricultural loan CSV file and explore insights
 
 ## ⚖️ Legal & Ethical Note
 
-1.This project is developed strictly for educational and analytical purposes
-2.No real farmer, bank, or credit bureau data is used
-3.No external APIs or live systems are connected
-4.The system does not make lending decisions
-5.The project follows ethical and responsible use of data.
+1. This project is developed strictly for educational and analytical purposes  
+2. No real farmer, bank, or credit bureau data is used  
+3. No external APIs or live systems are connected  
+4. The system does not make lending decisions  
+5. The project follows ethical and responsible use of data  
 
-##🌱 Practical Use Cases
+## 🌱 Practical Use Cases
 
-1.B.Com / Finance students – applied academic project
-2.NGOs & Cooperatives – understanding common risk drivers
-3.Training programs – financial literacy and awareness
-4.Academic research – agricultural finance analysis
+1. B.Com / Finance students – applied academic project  
+2. NGOs & Cooperatives – understanding common risk drivers  
+3. Training programs – financial literacy and awareness  
+4. Academic research – agricultural finance analysis  
 
-##🔮 Future Scope
+## 🔮 Future Scope
 
-1.District or state-level risk analysis
-2.Year-wise agricultural loan trend comparison
-3.Inclusion of basic weather risk indicators
-4.Simplified mobile-friendly interface
+1. District or state-level risk analysis  
+2. Year-wise agricultural loan trend comparison  
+3. Inclusion of basic weather risk indicators  
+4. Simplified mobile-friendly interface  
 
-##👤 Author
+
+## 👤 Author
 
 Kiran Chhetri
 Bachelor of Commerce (B.Com)
 Focus Area: Accounting, Taxation & Financial Analysis
 
-##⭐ Closing Note
+## ⭐ Closing Note
 
 This project highlights how financial and commerce principles can be combined with simple analytical tools to improve risk awareness and responsible lending, without replacing human judgment or institutional decision-making.
