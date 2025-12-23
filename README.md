@@ -98,3 +98,4 @@ This application uses publicly available open-source weather data
 for educational and advisory purposes only. 
 Predictions are indicative and should not be treated as official or guaranteed.
 
+Location input is used only for climate estimation and is not stored.
