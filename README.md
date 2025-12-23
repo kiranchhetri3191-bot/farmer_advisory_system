@@ -127,7 +127,7 @@ Run the application
  ```bash
  streamlit run app.py
 
-
+---
 3.Upload an agricultural loan CSV file and explore insights
 
 ## ⚖️ Legal & Ethical Note
