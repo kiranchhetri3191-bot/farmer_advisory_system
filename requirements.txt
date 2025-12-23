@@ -6,3 +6,4 @@ requests
 joblib
 openpyxl
 reportlab
+matplotlib
