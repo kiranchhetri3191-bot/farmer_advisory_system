@@ -93,9 +93,15 @@ Unauthorized commercial use, redistribution, or claiming this project as one’s
 
 Educational and non-commercial use is permitted **with proper credit to the author**.
 
-Disclaimer:
+Location input is used only for climate estimation and is not stored.
+
+## Data Sources
+- Climate data: Open-Meteo (open-source)
+- Models: Scikit-learn
+
+## Disclaimer
+This project is for educational and demonstration purposes only.
 This application uses publicly available open-source weather data 
 for educational and advisory purposes only. 
-Predictions are indicative and should not be treated as official or guaranteed.
+Predictions are indicative and should not be treated as official or guaranteed
 
-Location input is used only for climate estimation and is not stored.
