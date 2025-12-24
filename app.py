@@ -18,7 +18,7 @@ from reportlab.lib.pagesizes import A4
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
     page_title="Agri Loan Decision Support",
-    page_icon="🌾",
+    page_icon="logo.png",
     layout="wide"
 )
 
