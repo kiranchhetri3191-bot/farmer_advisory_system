@@ -133,6 +133,27 @@ streamlit run app.py
 
  3.Upload an agricultural loan CSV file and explore insights
 
+## 📄 CSV Input Format
+
+To use this application, upload a CSV file with the following **required column headers**:
+
+| Column Name            | Description |
+|------------------------|-------------|
+| farmer_age             | Age of the farmer (in years) |
+| land_size_acres        | Total agricultural land owned (in acres) |
+| annual_farm_income     | Annual income from farming (₹) |
+| loan_amount            | Loan amount requested (₹) |
+| crop_type              | Primary crop grown (Rice, Wheat, Maize, Cotton, Sugarcane) |
+| irrigation_type        | Type of irrigation (Rainfed, Canal, Borewell) |
+| existing_loans         | Number of active loans |
+| credit_score           | Credit score indicator (300–850) |
+
+### 📌 Important Notes
+- All monetary values should be in **Indian Rupees (₹)**  
+- Column names must match **exactly**  
+- This system provides **risk insights only**, not loan approval decisions  
+
+
 ## ⚖️ Legal & Ethical Note
 
 1. This project is developed strictly for educational and analytical purposes  
