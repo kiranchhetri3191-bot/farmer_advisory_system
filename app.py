@@ -63,7 +63,7 @@ st.divider()
 
 # ---------------- TITLE ----------------
 st.markdown("""
-<h1 style='text-align:center;'>🌾 Agricultural Loan Risk & Advisory Dashboard</h1>
+<h1 style='text-align:center;'>logo.png Agricultural Loan Risk & Advisory Dashboard</h1>
 <p style='text-align:center; font-size:17px;'>
 CSV Upload • Visual Insights • Improvement Guidance
 </p>
